@@ -1,0 +1,33 @@
+<!-- 这个html是用来作为模板继承用的,用来减少代码的重复 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 窗口名均写在同名占位符里 -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <audio src="../static/vedio/1.mp3" id="dd" autoplay="autoplay" loop="loop"></audio>
+    <style type="text/css">
+        @media (min-width: 500px) {
+            body {
+                min-width: 500px;
+            }
+        }
+    
+        @media (min-height: 300px) {
+            body {
+                min-height: 300px;
+            }
+        }
+    </style>
+    <!-- 头部补充信息写在同名占位符里 -->
+    {% block head %}{% endblock %}
+</head>
+<body style="background-color:#333;background-attachment: fixed;width: 100%;background: url('/static/images/1.jpg') no-repeat;background-size: 100% 100%;background-attachment: fixed;
+    height: 100;">
+    <!-- body具体实现均写在同名占位符里 -->
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

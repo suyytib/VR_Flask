@@ -1,0 +1,167 @@
+{% extends 'base.html' %} {% block title %} 赤水云迹·VR重走长征路 {% endblock %} {% block
+head %}
+<!-- 定义主页背景色的CSS样式 -->
+<script src="../../static/js/waibu/video.min.js"></script>
+<script src="../../static/js/waibu/typed.js@2.0.9"></script>
+<script src="../../static/js/waibu/jquery.min.js"></script>
+<script src="../../static/js/waibu/layui.js"></script>
+<script src="../../static/js/waibu/editormd.js"></script>
+<script src="../../static/build/ckeditor.js"></script>
+<script src="../../static/js/waibu/layedit.js"></script>
+<script src="../../static/js/bootsrap/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/waibu/particles.min.js"></script>
+<script src="../../static/js/wangzhan/other.js"></script>
+<script src="../../static/js/waibu/aos.js"></script>
+
+<link href="../../static/css/waibu/video-js.css" rel="stylesheet" />
+<link href="../../static/css/waibu/layui.css" rel="stylesheet">
+<link rel="stylesheet" href="../../static/css/waibu/jquery-scrollbar.css" />
+<link rel="stylesheet" href="../../static/css/wangzhan.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap.min.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-grid.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-grid.rtl.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-reboot.min.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-utilities.css" />
+<link rel="stylesheet" href="../../static/css/waibu/aos.css" />
+{% endblock %} {% block body%}
+<div style="background-attachment: fixed;width: 100%;background: url('/static/images/1.jpg') no-repeat;background-size: 100% 100%;background-attachment: fixed;
+    height: 100%;" data-aos-easing="ease" data-aos-duration="2000" data-aos-delay="0" id="myDiv">
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
+        <div class="container">
+            <a class="h1 navbar-brand" href="{{url_for('root.root')}}">赤水云迹·VR重走长征路</a>
+            <button class="navbar-light navbar-toggler collapsed btn btn-primary" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarsDefault" aria-expanded="false"
+                aria-controls="navbarsDefault">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse offcanvas-collapse" id="navbarsDefault">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a href="{{url_for('root.root')}}" class="nav-link">总览</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.yidu')}}" class="nav-link">一渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.erdu')}}" class="nav-link">二渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.sandu')}}" class="nav-link">三渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.sidu')}}" class="nav-link">四渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.yiyi')}}" class="nav-link">历史意义</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="pt-4 pb-4  aos-init" data-aos="fade-up">
+            <h1 class="text-black pt-3 pb-3"><strong>一渡赤水，顺势之奇</strong></h1>
+        </section>
+        <div style="background-color: aliceblue;">
+            <div style="width: 100%;display:flex;">
+                <div style="width: 90%;">
+                    <textarea id="editor" lay-verify="content" name="text"></textarea>
+                </div>
+                <button type="button" name="btnradio" class="comSub btn btn-primary" style="width: 10%;">AI问答</button>
+            </div>
+        </div>
+        <div id="overlaya">
+            <div class="popupx">
+                <p class="popupx_content textarea" lay-verify="content" id="text" readonly>
+                </p>
+                <div class="popup_btn">
+                    <a type="button" class="confirmBtn" href="#" onclick="hiddenPopupa()">确认</a>
+                </div>
+            </div>
+        </div>
+        <iframe width=100% height=700 frameborder=0 scrolling=auto
+            src="https://4e2habqzs.wasee.com/wt/4e2habqzs"></iframe>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <div id="typed-strings">
+                <p class="h3 text-white pt-3 pb-5" style="line-height:40px;">
+                    1935年1月29日拂晓前，红军主力向古蔺、叙永地区前进，计划北渡长江，川军当即以8个旅的兵力分路向我追截，并以4个旅封锁长江，堵住红军北进之路。国民党中央军薛岳兵团和黔军从贵州分路向川南追击，滇军3个旅向毕节、镇雄急进，妄图围截红军。前有敌军沿岸设防，后有追兵就在路上。面对危急战况，毛泽东同志当机立断，一渡赤水剑指国民党军设防空虚的川黔滇三省边界地区扎西，暂缓北渡长江。旨在保存军力，待机歼敌或机动。
+
+                    尽管遭遇了困局危局，毛泽东同志等老一辈革命家镇定自若、顺势决策，跳出了思维的困囿，适时改变既定计划。既能把握有利战机，使得红军按建制顺利脱离敌人，又能细研敌我优劣，快速拟制出最有利的方案，不断争取战场上的主动。
+                </p>
+            </div>
+            <span id="typed" class="h3 text-white pt-3 pb-5" style="line-height:40px;"></span>
+        </section>
+        <div style="height: 100px;"></div>
+        <div class="container">
+            <div style="text-align: center;">
+                <video id="my-video" class="video-js" loop controls preload="auto" style="width: 80%;height: 80%;"
+                    poster="" data-setup="{}">
+                    <source src='/static/vedio/一渡赤水.mp4' type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <div style="height: 100px;"></div>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <div>
+                <p class="h3 text-white pt-3 pb-5" style="line-height:40px;">
+                    文章取自于：<a href="http://dangshi.people.com.cn/n1/2021/1230/c436975-32320400.html">http://dangshi.people.com.cn/n1/2021/1230/c436975-32320400.html</a>
+                    <br>
+                    视频取自于：<a href="https://www.bilibili.com/video/BV1ZW4y1f7V5/?spm_id_from=333.337.search-card.all.click&vd_source=b9101d6011a252c7e8a0f029f42005ee">https://www.bilibili.com/video/BV1ZW4y1f7V5/?spm_id_from=333.337.search-card.all.click&vd_source=b9101d6011a252c7e8a0f029f42005ee</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="text/javascript">
+    AOS.init();
+    var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        typeSpeed: 50,
+    });
+    function hiddenPopupa() {
+        var overlayb = document.getElementById("overlaya");
+        overlayb.style.display = "none";
+    }
+    let editor;
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            licenseKey: '',
+            language: 'en',
+            toolbar: {
+                items: []
+            }
+        })
+        .then(newEditor => {
+            editor = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    $(".comSub").click(function () {
+        var text = editor.getData();
+        if (text == "" || text == undefined) {
+            alert("内容不能为空哦！");
+        } else {
+            var overlaya = document.getElementById("overlaya");
+            overlaya.style.display = "block";
+            var box = document.getElementById("text");
+            box.innerText = "AI正在组织语言";
+            $.post(
+                "/root/chart",
+                { answer: text },
+                function (result) {
+                    if (result.success) {
+                        box.innerText = result.message;
+                    }
+                }
+            );
+        }
+    });
+</script>
+{% endblock %}

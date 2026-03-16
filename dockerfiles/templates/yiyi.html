@@ -1,0 +1,520 @@
+{% extends 'base.html' %} {% block title %} 赤水云迹·VR重走长征路 {% endblock %} {% block
+head %}
+<!-- 定义主页背景色的CSS样式 -->
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script src="../../static/js/waibu/typed.js@2.0.9"></script>
+<script src="../../static/js/waibu/scrollreveal.js"></script>
+<script src="../../static/js/waibu/jquery.min.js"></script>
+<script src="../../static/js/waibu/layui.js"></script>
+<script src="../../static/js/waibu/editormd.js"></script>
+<script src="../../static/build/ckeditor.js"></script>
+<script src="../../static/js/waibu/layedit.js"></script>
+<script src="../../static/js/bootsrap/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/waibu/particles.min.js"></script>
+<script src="../../static/js/wangzhan/other.js"></script>
+<script src="../../static/js/waibu/aos.js"></script>
+
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+<link href="../../static/css/waibu/layui.css" rel="stylesheet">
+<link rel="stylesheet" href="../../static/css/waibu/jquery-scrollbar.css" />
+<link rel="stylesheet" href="../../static/css/wangzhan.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap.min.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-grid.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-grid.rtl.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-reboot.min.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-utilities.css" />
+<link rel="stylesheet" href="../../static/css/waibu/aos.css" />
+{% endblock %} {% block body%}
+<div data-aos-easing="ease" data-aos-duration="2000" data-aos-delay="0" data-scroll-reveal id="myDiv">
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
+        <div class="container">
+            <a class="h1 navbar-brand" href="{{url_for('root.root')}}">赤水云迹·VR重走长征路</a>
+            <button class="navbar-light navbar-toggler collapsed btn btn-primary" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarsDefault" aria-expanded="false"
+                aria-controls="navbarsDefault">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse offcanvas-collapse" id="navbarsDefault">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a href="{{url_for('root.root')}}" class="nav-link">总览</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.yidu')}}" class="nav-link">一渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.erdu')}}" class="nav-link">二渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.sandu')}}" class="nav-link">三渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.sidu')}}" class="nav-link">四渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.yiyi')}}" class="nav-link">历史意义</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="pt-4 pb-4  aos-init" data-aos="fade-up">
+            <h1 class="text-black pt-3 pb-3"><strong>世界战争指挥史上的奇迹</strong></h1>
+        </section>
+        <div style="background-color: aliceblue;">
+            <div style="width: 100%;display:flex;">
+                <div style="width: 90%;">
+                    <textarea id="editor" lay-verify="content" name="text"></textarea>
+                </div>
+                <button type="button" name="btnradio" class="comSub btn btn-primary" style="width: 10%;">AI问答</button>
+            </div>
+        </div>
+        <div id="overlaya">
+            <div class="popupx">
+                <p class="popupx_content textarea" lay-verify="content" id="text" readonly>
+                </p>
+                <div class="popup_btn">
+                    <a type="button" class="confirmBtn" href="#" onclick="hiddenPopupa()">确认</a>
+                </div>
+            </div>
+        </div>
+        <iframe width=100% height=700 frameborder=0 scrolling=auto
+            src="https://086b1jymd.wasee.com/wt/086b1jymd"></iframe>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <div id="typed-strings">
+                <p class="h3 text-white pt-3 pb-5" style="line-height:40px;">
+                    四渡赤水战役，是遵义会议之后，中央红军在长征途中，处于国民党几十万重兵围追堵截的艰险条件下，进行的一次运动战战役。从1935年1月19日红军离开遵义开始，到1935年5月9日胜利渡过金沙江为止，历时3个多月，共歼灭和击溃敌人4个师、2个旅另10个团，俘敌3600余人。在毛泽东、周恩来、王稼祥、朱德等指挥下，中央红军采取高度机动的运动战方针，纵横驰骋于川黔滇边境广大地区，积极寻找战机，有效地调动和歼灭敌人，彻底粉碎了蒋介石企图围歼红军于川黔滇边境的狂妄计划，取得了战略转移中具有决定意义的胜利。
+                </p>
+            </div>
+            <span id="typed" class="h3 text-white pt-3 pb-5" style="line-height:40px;"></span>
+        </section>
+        <div style="height: 100px;"></div>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-left">
+            <table>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/31.jpg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 100px;"></div>
+                    </td>
+                    <td>
+                        <h1 class="text-danger pt-3 pb-3"><strong>四渡赤水才是我的得意之笔。</strong></h1>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <div style="height: 100px;"></div>
+        <div class="container">
+            <div style="text-align: center;">
+                <video id="my-video" class="video-js" loop controls preload="auto" style="width: 80%;height: 80%;"
+                    poster="" data-setup="{}">
+                    <source src='/static/vedio/四渡赤水意义.mp4' type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <div style="height: 100px;"></div>
+        <ul>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/3.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/4.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/16.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/17.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/18.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/19.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/20.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/21.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/22.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/23.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/24.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/25.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/26.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/27.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/28.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='https://pic1.zhimg.com/v2-7fa605cbdfaa38732e3f782fb51d067a_r.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='https://pic1.zhimg.com/80/v2-82f523ff5803e452fc1fdef9dfdb9b26_1440w.webp' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='https://picx.zhimg.com/80/v2-eff367bb09b3bbac13b15b36d027bdf7_1440w.webp' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='https://pic1.zhimg.com/80/v2-80b84d5786bb0ee20ec64455618a0224_1440w.webp' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='https://pic1.zhimg.com/80/v2-f0f5404e28305e5f836951e78836be50_1440w.webp' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='https://pic4.zhimg.com/80/v2-eb4a636f4c45175f0998efbfb3b1f053_1440w.webp' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init">
+                <table>
+                    <tr>
+                        <td>
+                            <li class="sl">
+                                <div class="card">
+                                    <img src='/static/images/29.jpeg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='https://pic.vjshi.com/2021-05-11/c110241b674dcdd90f5ff278ed18556f/online/2861d468e2f4c604dc0d5c46b96e0ca8.jpg?x-oss-process=style/resize_w_720' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                        <td>
+                            <div style="width: 100px;"></div>
+                        </td>
+                        <td>
+                            <li class="sr">
+                                <div class="card">
+                                    <img src='/static/images/30.jpg' style="height: 350px;width: 350px;"
+                                        class="card-img-top" alt="...">
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div style="height: 100px;"></div>
+            <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+                <div>
+                    <p class="h3 text-white pt-3 pb-5" style="line-height:40px;">
+                        文章取自于：<a href="https://baike.baidu.com/item/%E5%9B%9B%E6%B8%A1%E8%B5%A4%E6%B0%B4/11590">https://baike.baidu.com/item/%E5%9B%9B%E6%B8%A1%E8%B5%A4%E6%B0%B4/11590</a>
+                        <br>
+                        视频取自于：<a href="https://www.bilibili.com/video/BV1Uj411E7XW/?spm_id_from=333.999.0.0&vd_source=b9101d6011a252c7e8a0f029f42005ee">https://www.bilibili.com/video/BV1Uj411E7XW/?spm_id_from=333.999.0.0&vd_source=b9101d6011a252c7e8a0f029f42005ee</a>
+                        <br>
+                        图片取自于：<a href="https://cn.bing.com/images/search?q=%e5%9b%9b%e6%b8%a1%e8%b5%a4%e6%b0%b4&form=HDRSC2&first=1">https://cn.bing.com/images/search?q=%e5%9b%9b%e6%b8%a1%e8%b5%a4%e6%b0%b4&form=HDRSC2&first=1</a>
+                    </p>
+                </div>
+            </section>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    AOS.init();
+    window.onload = function () {
+        ScrollReveal().reveal('.sr', {
+            reset: true, // 滚动鼠标时，动画开关
+            origin: 'right', // 动画开始的方向
+            duration: 2000, // 动画持续时间
+            delay: 0, // 延迟
+            distance: '150px',
+            move: 0,
+            rotate: { x:0, y: 0, z: 0}, // 过度到0的初始角度
+            opacity: 0, // 初始透明度
+            scale: 0.5, //缩放
+            easing: 'cubic-bezier(0.6, 0.2, 0.2, 1)', // 缓动'ease', 'ease-in-out'，'linear'...
+            // 回调函数
+            beforeReveal: function (domEl) { },
+            beforeReset: function (domEl) { },
+            afterReveal: function (domEl) { },
+            afterReset: function (domEl) { }
+        });
+        ScrollReveal().reveal('.sl', {
+            reset: true, // 滚动鼠标时，动画开关
+            origin: 'left', // 动画开始的方向
+            duration: 2000, // 动画持续时间
+            delay: 0, // 延迟
+            distance: '150px',
+            move: 0,
+            rotate: { x: 0, y: 0, z: 0 }, // 过度到0的初始角度
+            opacity: 0, // 初始透明度
+            scale: 0, //缩放
+            easing: 'cubic-bezier(0.6, 0.2, 0.2, 1)', // 缓动'ease', 'ease-in-out'，'linear'...
+            // 回调函数
+            beforeReveal: function (domEl) { },
+            beforeReset: function (domEl) { },
+            afterReveal: function (domEl) { },
+            afterReset: function (domEl) { }
+        });
+    }
+    var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        typeSpeed: 50,
+    });
+    function hiddenPopupa() {
+        var overlayb = document.getElementById("overlaya");
+        overlayb.style.display = "none";
+    }
+    let editor;
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            licenseKey: '',
+            language: 'en',
+            toolbar: {
+                items: []
+            }
+        })
+        .then(newEditor => {
+            editor = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    $(".comSub").click(function () {
+        var text = editor.getData();
+        if (text == "" || text == undefined) {
+            alert("内容不能为空哦！");
+        } else {
+            var overlaya = document.getElementById("overlaya");
+            overlaya.style.display = "block";
+            var box = document.getElementById("text");
+            box.innerText = "AI正在组织语言";
+            $.post(
+                "/root/chart",
+                { answer: text },
+                function (result) {
+                    if (result.success) {
+                        box.innerText = result.message;
+                    }
+                }
+            );
+        }
+    });
+</script>
+{% endblock %}

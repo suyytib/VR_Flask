@@ -1,0 +1,261 @@
+{% extends 'base.html' %} {% block title %} 赤水云迹·VR重走长征路 {% endblock %} {% block
+head %}
+<!-- 定义主页背景色的CSS样式 -->
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script src="../../static/js/waibu/typed.js@2.0.9"></script>
+<script src="../../static/js/waibu/jquery.min.js"></script>
+<script src="../../static/js/waibu/layui.js"></script>
+<script src="../../static/js/waibu/editormd.js"></script>
+<script src="../../static/build/ckeditor.js"></script>
+<script src="../../static/js/waibu/layedit.js"></script>
+<script src="../../static/js/bootsrap/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/waibu/particles.min.js"></script>
+<script src="../../static/js/wangzhan/other.js"></script>
+<script src="../../static/js/waibu/aos.js"></script>
+
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+<link href="../../static/css/waibu/layui.css" rel="stylesheet">
+<link rel="stylesheet" href="../../static/css/waibu/jquery-scrollbar.css" />
+<link rel="stylesheet" href="../../static/css/wangzhan.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap.min.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-grid.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-grid.rtl.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-reboot.min.css" />
+<link rel="stylesheet" href="../../static/css/bootstart/bootstrap-utilities.css" />
+<link rel="stylesheet" href="../../static/css/waibu/aos.css" />
+{% endblock %} {% block body%}
+<button onclick="rs()" hidden>重置播放</button>
+<div style="background-attachment: fixed;width: 100%;background: url('/static/images/1.jpg') no-repeat;background-size: 100% 100%;background-attachment: fixed;
+    height: 100%;" data-aos-easing="ease" data-aos-duration="2000" data-aos-delay="0" id="myDiv">
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
+        <div class="container">
+            <a class="h1 navbar-brand" href="{{url_for('root.root')}}">赤水云迹·VR重走长征路</a>
+            <button class="navbar-light navbar-toggler collapsed btn btn-primary" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarsDefault" aria-expanded="false"
+                aria-controls="navbarsDefault">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse offcanvas-collapse" id="navbarsDefault">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a href="{{url_for('root.root')}}" class="nav-link">总览</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.yidu')}}" class="nav-link">一渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.erdu')}}" class="nav-link">二渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.sandu')}}" class="nav-link">三渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.sidu')}}" class="nav-link">四渡赤水</a>
+                    </li>
+                    <li class="breadcrumb-item" style="color: aliceblue;">></li>
+                    <li class="nav-item">
+                        <a href="{{url_for('root.yiyi')}}" class="nav-link">历史意义</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="pt-4 pb-4  aos-init" data-aos="fade-up">
+            <h1 class="text-black pt-3 pb-3"><strong>四渡赤水：出奇制胜的典范</strong></h1>
+        </section>
+        <div style="background-color: aliceblue;">
+            <div style="width: 100%;display:flex;">
+                <div style="width: 90%;">
+                    <textarea id="editor" lay-verify="content" name="text"></textarea>
+                </div>
+                <button type="button" name="btnradio" class="comSub btn btn-primary" style="width: 10%;">AI问答</button>
+            </div>
+        </div>
+        <div id="overlaya">
+            <div class="popupx">
+                <p class="popupx_content textarea" lay-verify="content" id="text" readonly>
+                </p>
+                <div class="popup_btn">
+                    <a type="button" class="confirmBtn" href="#" onclick="hiddenPopupa()">确认</a>
+                </div>
+            </div>
+        </div>
+        <iframe width=100% height=700 frameborder=0 scrolling=auto
+            src="https://086b1jymd.wasee.com/wt/086b1jymd"></iframe>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <div id="typed-strings">
+                <p class="h3 text-white pt-3 pb-5" style="line-height:40px;">
+                    四渡赤水是中央红军在长征中，在贵州、四川、云南边界地区，冲破国民党军围追堵截，争取战略主动的作战行动。遵义会议后，30000余红军，在毛泽东同志指挥下，为了从四川泸州、宜宾之间北渡长江，同川陕根据地红四方面军会合，于1935年1月19日从遵义地区出发，经桐梓、松坎转向西进，28日在习水西南土城重创四川军阀一个师后，29日分别在土城、元厚场第一次渡过赤水河，进到云南威信(即扎西)地区。蒋介石急调兵到川、滇、黔三省交界地区进行围堵，并严密封锁长江沿岸。当其重兵逼近威信时，红军为了争取主动，便放弃从泸州、宜宾之间北渡长江的计划，乘贵州北部敌人比较空虚，突然转头东进，于2月18日和19日由土城东南的太平渡、二郎滩第二次渡过赤水河，将围堵之敌甩在后面。接着，以一部兵力将回头尾追的敌军向温水方向吸引，主力再占桐梓、娄山关和遵义城，歼灭贵州军阀两个师。这时，蒋介石嫡系两个师驰援遵义。红军一部兵力在遵义城西南郊老鸦山地区与敌展开激烈争夺战，主力从侧翼突击，将敌主力歼灭于遵义城外，并乘胜猛追，将敌大部歼灭于乌江北岸。这次遵义战役，歼敌20个团，是长征以来第一个大胜仗。此后，红军为了调动和迷惑敌人，从遵义再次西进，3月16日乘虚占领仁怀，由茅台第三次渡过赤水河，19日进至川南古蔺地区。蒋介石以为红军又要北渡长江，急忙一面派兵西进，一面在川、黔、滇边界地区大修碉堡，企图封锁红军。当敌重兵奔集四川南部时，红军又突然折回，于3月21日晚，分别经二郎滩、九溪口、太平渡第四次渡过赤水河，以一部兵力牵制敌人，主力急速南进，直逼贵阳，威胁昆明。当敌主力回救昆明时，红军又突然转向西北挺进，攻渡金沙江，摆脱数十万敌军围追堵截，取得了战略转移中具有决定性意义的胜利。
+                </p>
+            </div>
+            <span id="typed" class="h3 text-white pt-3 pb-5" style="line-height:40px;"></span>
+        </section>
+        <div style="height: 100px;"></div>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <table>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/8.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 300px;"></div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/9.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <div style="height: 100px;"></div>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <table>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/10.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 300px;"></div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/11.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <div style="height: 100px;"></div>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <table>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/12.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 300px;"></div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/13.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <div style="height: 100px;"></div>
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <table>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/14.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width: 300px;"></div>
+                    </td>
+                    <td>
+                        <div class="card">
+                            <img src='/static/images/15.jpeg' style="height: 500px;width: 500px;" class="card-img-top"
+                                alt="...">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <div style="height: 100px;"></div>
+        <!-- <div id="overlay">
+            <div class="popup">
+                <p class="popup_content">允许播放</p>
+                <div class="popup_btn">
+                    <a type="button" class="confirmBtn" href="#" onclick="rs()">确认</a>
+                </div>
+            </div>
+        </div> -->
+        <section class="pt-4 pb-3  aos-init" data-aos="fade-up">
+            <div>
+                <p class="h3 text-white pt-3 pb-5" style="line-height:40px;">
+                    文章取自于：<a href="http://dangshi.people.com.cn/n1/2021/1230/c436975-32320400.html">http://dangshi.people.com.cn/n1/2021/1230/c436975-32320400.html</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "block";
+    }
+    AOS.init();
+    var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        typeSpeed: 50,
+    });
+    function rs() {
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "none";
+        var dd = document.getElementById("dd")
+        dd.load()
+    }
+    function hiddenPopupa() {
+        var overlayb = document.getElementById("overlaya");
+        overlayb.style.display = "none";
+    }
+    let editor;
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            licenseKey: '',
+            language: 'en',
+            toolbar: {
+                items: []
+            }
+        })
+        .then(newEditor => {
+            editor = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    $(".comSub").click(function () {
+        var text = editor.getData();
+        if (text == "" || text == undefined) {
+            alert("内容不能为空哦！");
+        } else {
+            var overlaya = document.getElementById("overlaya");
+            overlaya.style.display = "block";
+            var box = document.getElementById("text");
+            box.innerText = "AI正在组织语言";
+            $.post(
+                "/root/chart",
+                { answer: text },
+                function (result) {
+                    if (result.success) {
+                        box.innerText = result.message;
+                    }
+                }
+            );
+        }
+    });
+</script>
+{% endblock %}
